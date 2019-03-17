@@ -1,0 +1,1018 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]><html class="ie ie6" lang="en"><![endif]-->
+<!--[if IE 7]><html class="ie ie7" lang="en"><![endif]-->
+<!--[if IE 8]><html class="ie ie8" lang="en"><![endif]-->
+<!--[if IE 9]><html class="ie9" lang="en"><![endif]-->
+<!--[if (gte IE 10)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+
+<head>
+
+<!-- Your Basic Site Informations -->
+<title>学生助手</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="学生助手，掌握你的校园生活">
+<meta name="keywords" content=“学生助手">
+<meta name="author" content="无聊的钢镚">
+
+<!-- Mobile Specific Meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<link href=".././static/images/tubiao.ico" rel = 'icon' >
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,700" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Asap:400,400i,700" rel="stylesheet" type="text/css">
+
+<!-- Stylesheets -->
+<link rel="stylesheet" href=".././static/css/bootstrap.min.css">
+<link rel="stylesheet" href=".././static/css/ionicons.min.css">
+<link rel="stylesheet" href=".././static/css/slick.css">
+<link rel="stylesheet" href=".././static/css/slick-theme.css">
+<link rel="stylesheet" href=".././static/css/jquery.fancybox.css">
+<link rel="stylesheet" href=".././static/css/animate.min.css">
+<link rel="stylesheet" href=".././static/css/style.css">
+
+<!-- Custom Colors -->
+<!--<link rel="stylesheet" href="css/colors/green/color.css">-->
+<!--<link rel="stylesheet" href="css/colors/orange/color.css">-->
+<!--<link rel="stylesheet" href="css/colors/pink/color.css">-->
+<!--<link rel="stylesheet" href="css/colors/purple/color.css">-->
+<!--<link rel="stylesheet" href="css/colors/yellow/color.css">-->
+
+<!--[if lt IE 9]>
+	<script src="static/js/html5.js"></script>
+	<script src="static/js/respond.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 8]>
+	<link rel="stylesheet" href="static/css/ie-older.css">
+<![endif]-->
+
+<noscript><link rel="stylesheet" href=".././static/css/no-js.css"></noscript>
+
+<!-- Favicons -->
+<link rel="shortcut icon" href=".././static/images/favicon.ico">
+<link rel="apple-touch-icon" href=".././static/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href=".././static/images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href=".././static/images/apple-touch-icon-114x114.png">
+
+</head>
+<body>
+
+<!-- #header -->
+<header id="header">
+	
+	<!-- #navigation -->
+	<nav id="navigation" class="navbar scrollspy">
+		
+		<!-- .container -->
+		<div class="container">
+
+			<div class="navbar-brand">
+				<a href="#"><img src=".././static/images/logo.png" alt="Logo"></a> <!-- site logo -->
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a href="#header" class="smooth-scroll">首页</a></li>
+				<li><a href="#features" class="smooth-scroll">功能</a></li>
+				<li><a href="#testimonials" class="smooth-scroll">计划</a></li>
+				<li><a href="#screenshots" class="smooth-scroll">截图</a></li>
+				<li><a href="#pricing" class="smooth-scroll">加入</a></li>
+				<li><a href="{% url 'blog_list' %}" class="smooth-scroll">博客</a></li>
+				{% if username %}
+				<li>用户名：{{username}}</li>
+				<li class="menu-btn"><a href="{% url 'logout' %}?from={{ request.get_full_path }}">退出登录</a></li>
+				{% else %}
+				<li class="menu-btn"><a href="{% url 'login' %}?from={{ request.get_full_path }}">登录</a ></li>
+				{% endif %}
+			</ul>
+
+		</div>
+		<!-- .container end -->
+		
+	</nav>
+	<!-- #navigation end -->
+	
+	<!-- .header-content -->
+	<div class="header-content">
+		
+		<!-- .container -->
+		<div class="container">
+			
+			<!-- .row -->
+			<div class="row header-row">
+				
+				<div class="col-sm-7 col-md-8 col-lg-7">
+					<div class="header-txt">
+						<h1>学生助手<br>告别选课的等待！</h1>
+						<p>学生助手把一键评教、成绩查询、自助选课等常用教务功能聚集于一身。物理实验预约不必再苦苦等待，无需注册，登录你的教务网账号，只需要你动动手指，统统免费帮你搞定！</p>
+					</div>
+					<div class="header-btn">
+						<a href="#features" class="btn-custom">了解更多</a>
+						{% if username %}
+						<a href="download.html" class="btn-custom btn-border btn-icon smooth-scroll"><i class="ion ion-ios-cloud-download-outline"></i> 下载winds</a>
+						{% else %}
+						<a href="{% url 'login' %}?from={{ request.get_full_path }}" class="btn-custom btn-border btn-icon smooth-scroll"><i class="ion ion-ios-cloud-download-outline"></i> 下载winds</a>
+						{% endif %}
+					</div>
+				</div>
+				
+				<div class="col-sm-5 col-md-4 col-lg-offset-1 header-img">
+					<div class="carousel-slider header-slider animation" data-animation="animation-fade-in-down">
+						<div><img src=".././static/images/content/sliders/1.jpg" alt="Image 1"></div>
+						<div><img src=".././static/images/content/sliders/2.jpg" alt="Image 2"></div>
+						<div><img src=".././static/images/content/sliders/3.jpg" alt="Image 3"></div>
+						<div><img src=".././static/images/content/sliders/4.jpg" alt="Image 4"></div>
+					</div>
+				</div>
+				
+			</div>
+			<!-- .row end -->
+			
+		</div>
+		<!-- .container end -->
+		
+	</div>
+	<!-- .header-content end -->
+	
+	<div class="header-bg" style="background-image:url(static/images/content/bg/1.jpg);">
+		<div class="header-bg-overlay"></div>
+	</div>
+	
+</header>
+<!-- #header end -->
+
+<!-- #features -->
+<div id="features" class="section-wrap padding-top100">
+	
+	<!-- .container -->
+	<div class="container">
+		
+		<div class="post-heading-center">
+			<p>软件功能</p>
+			<h2>创造三大掌上校园</h2>
+		</div>
+		
+		<!-- .row -->
+		<div class="row padding-bottom20">
+			
+			<div class="col-sm-4"> <!-- 1 -->
+				<div class="affa-feature-icon">
+					<i class="ion ion-android-chat"></i>
+					<h4>课程聊天室</h4>
+					<p>同一课程的同学自动划分到一个群组，老师点到、课程作业，牢牢掌握！</p>
+					<a href="#features" class="link-more">了解更多</a>
+				</div>
+			</div>
+			
+			<div class="col-sm-4"> <!-- 2 -->
+				<div class="affa-feature-icon">
+					<i class="ion ion-ios-locked-outline"></i>
+					<h4>一键评教</h4>
+					<p>支持一键评教功能，全部好评，部分好评，一键搞定，方便又快捷！</p>
+					<a href="#features" class="link-more">了解更多</a>
+				</div>
+			</div>
+			
+			<div class="col-sm-4"> <!-- 3 -->
+				<div class="affa-feature-icon">
+					<i class="ion ion-ios-cloud-outline"></i>
+					<h4>自助选课</h4>
+					<p>自动按照预选课表选课，让你告别早起，拒绝将就，好老师会让学习更近一步</p>
+					<a href="#features" class="link-more">了解更多</a>
+				</div>
+			</div>
+			
+		</div>
+		<!-- .row end -->
+		
+		<div class="text-center">
+			<a href="#features" class="btn-custom btn-border">查看更新功能</a>
+		</div>
+		
+	</div>
+	<!-- .container end -->
+	
+	<!-- .container-wrap -->
+	<div class="container-wrap container-padding100">
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-lg-5 col-txt text-center-sm text-center-xs margin-bottom40-sm margin-bottom40-xs">
+					<div class="post-heading-left">
+						<h2><strong>支持</strong> 你的<br>所有设备</h2>
+					</div>
+					<p>目前仅支持winds，正在努力开发mac端和移动端（安卓和苹果）在不久的将来会同步上线。</p>
+					<p>校园生活掌上掌握，教务通知随时接收，自助选课，快人一步，一键评教，方便快捷</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-pull-right">
+			<figure class="img-layers3 img-pull-left">
+				<div class="img-layer-lg">
+					<img src=".././static/images/content/landing/feature-1.png" alt="Image Large" class="animation" data-animation="animation-fade-in-right">
+				</div>
+				<div class="img-layer-md">
+					<img src=".././static/images/content/landing/feature-2.png" alt="Image Mediun" class="animation" data-animation="animation-fade-in-left" data-delay="300">
+				</div>
+				<div class="img-layer-sm">
+					<img src=".././static/images/content/landing/feature-3.png" alt="Image Small" class="animation" data-animation="animation-fade-in-down" data-delay="600">
+				</div>
+			</figure>
+		</div>
+		
+	</div>
+	<!-- .container-wrap end -->
+	
+	<!-- .container-padding -->
+	<div class="container-padding10060 bg-color">
+		
+		<!-- .container -->
+		<div class="container">
+			
+			<!-- .row -->
+			<div class="row">
+				
+				<div class="col-sm-8 col-md-5 col-sm-offset-2 col-md-offset-0 margin-bottom20">
+					<figure class="img-layers img-layer-right-front">
+						<div class="img-layer-left">
+							<img src=".././static/images/content/landing/feature-4.png" alt="Image Left" class="animation" data-animation="animation-fade-in-left">
+						</div>
+						<div class="img-layer-right">
+							<img src=".././static/images/content/landing/feature-5.png" alt="Image Right" class="animation" data-animation="animation-fade-in-right" data-delay="400">
+						</div>
+					</figure>
+				</div>
+				
+				<div class="col-sm-10 col-md-7 col-lg-6 col-sm-offset-1 col-md-offset-0 col-lg-offset-1">
+					<div class="text-wrap40 text-center-sm text-center-xs">
+						<div class="post-heading-left">
+							<h2>课程聊天室，我们来聊聊</h2>
+						</div>
+						
+						<p class="margin-bottom30">第一时间找到课程组织，掌握课程动态，不必四处问老师电话，一切都在掌握！</p>
+						
+						<div class="affa-feature-icon-left margin-bottom30"> <!-- 1 -->
+							<i class="ion ion-happy-outline"></i>
+							<h4>更方便！</h4>
+							<p>将采用积分奖励措施征集老师电话、邮箱、办公地点等信息并公布在群组中。联系老师更方便</p>
+						</div>
+						
+						<div class="affa-feature-icon-left margin-bottom30"> <!-- 2 -->
+							<i class="ion ion-images"></i>
+							<h4>更简单</h4>
+							<p>无需再用QQ、微信加入各种群聊，管理各种群里，系统自动帮你管理好，出成绩后自动解散</p>
+						</div>
+						
+						<div class="affa-feature-icon-left"> <!-- 3 -->
+							<i class="ion ion-ios-bookmarks"></i>
+							<h4>更单纯</h4>
+							<p>无需注册账号，你的学号和教务网密码即可登录软件享受所用功能，没有陌生人打扰，全是你的同学！</p>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			<!-- .row end -->
+			
+		</div>
+		<!-- .container end -->
+		
+	</div>
+	<!-- .container-padding end -->
+	
+	<!-- .container-padding -->
+	<div class="container-padding10060 bg-grey">
+		
+		<!-- .container -->
+		<div class="container">
+			
+			<!-- .row -->
+			<div class="row">
+				
+				<div class="col-sm-6 col-md-7 col-lg-6 margin-bottom40">
+					<div class="text-wrap100">
+						<div class="post-heading-left text-center-xs">
+							<h2>无损音乐<br>vip视频下载</h2>
+						</div>
+						<p>各种无损免费下载，再也不会虐待你的耳机了。</p>
+						<p>优酷、腾讯、b站视频免费下载</p>
+						<div class="list-icon margin-bottom0">
+							<ul>
+								<li><i class="ion ion-android-done"></i> 可靠安全的平台</li>
+								<li><i class="ion ion-android-done"></i> 海量歌曲免费下载</li>
+								<li><i class="ion ion-android-done"></i> 你想看的我都有</li>
+								<li><i class="ion ion-android-done"></i> 高清视频任你选</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-sm-6 col-md-5 col-lg-offset-1 margin-bottom40">
+					<figure class="img-layers2 img-layer-left-front">
+						<div class="img-layer-left">
+							<img src=".././static/images/content/landing/feature-6.jpg" alt="Image Left" class="animation" data-animation="animation-fade-in-left" data-delay="400">
+						</div>
+						<div class="img-layer-right">
+							<img src=".././static/images/content/landing/feature-7.jpg" alt="Image Right" class="animation" data-animation="animation-fade-in-right">
+						</div>
+					</figure>
+				</div>
+				
+			</div>
+			<!-- .row end -->
+			
+		</div>
+		<!-- .container end -->
+		
+	</div>
+	<!-- .container-padding end -->
+	
+</div>
+<!-- #features end -->
+
+<!-- #works -->
+<div id="works" class="container-padding10080">
+	
+	<!-- .container -->
+	<div class="container">
+		
+		<div class="post-heading-center no-border margin-bottom40">
+			<h2>使用简单</h2>
+		</div>
+		
+		<!-- .row -->
+		<div class="row">
+			
+			<div class="col-sm-4"> <!-- 1 -->
+				<div class="affa-video-img">
+					<a href="" class="fancybox-media" title="Play Video" data-fancybox-group="videos_gallery">
+						<figure>
+							<img src=".././static/images/content/works/1.jpg" alt="Image">
+							<div class="video-img-masked"></div>
+						</figure>
+					</a>
+					<div class="video-img-txt">
+						<h4>怎样下载按装？</h4>
+						<p>03:40</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-sm-4"> <!-- 2 -->
+				<div class="affa-video-img">
+					<a href="" class="fancybox-media" title="Play Video" data-fancybox-group="videos_gallery">
+						<figure>
+							<img src=".././static/images/content/works/2.jpg" alt="Image">
+							<div class="video-img-masked"></div>
+						</figure>
+					</a>
+					<div class="video-img-txt">
+						<h4>怎样一键评教？</h4>
+						<p>02:30</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-sm-4"> <!-- 3 -->
+				<div class="affa-video-img">
+					<a href="" class="fancybox-media" title="Play Video" data-fancybox-group="videos_gallery">
+						<figure>
+							<img src=".././static/images/content/works/3.jpg" alt="Image">
+							<div class="video-img-masked"></div>
+						</figure>
+					</a>
+					<div class="video-img-txt">
+						<h4>怎样自助选课？</h4>
+						<p>01:48</p>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<!-- .row end -->
+		
+	</div>
+	<!-- .container end -->
+	
+</div>
+<!-- #works end -->
+
+<!-- #features2 -->
+<div id="features2">
+	
+	<!-- .container -->
+	<div class="container">
+		
+		<div class="post-heading-center">
+			<p>客户</p>
+			<h2>我们的上帝</h2>
+		</div>
+		
+		<!-- .row -->
+		<div class="row padding-bottom40">
+			
+			<div class="col-sm-4"> <!-- 1 -->
+				<div class="affa-feature-icon-left2">
+					<i class="ion ion-android-alarm-clock"></i>
+					<h4>7天24小时守侯</h4>
+					<p>我们提供7天24小时的技术支持，全程守护你的安全使用！</p>
+				</div>
+			</div>
+			
+			<div class="col-sm-4"> <!-- 2 -->
+				<div class="affa-feature-icon-left2">
+					<i class="ion ion-android-call"></i>
+					<h4>在线客服</h4>
+					<p>使用软件的过程中的任何问题可以联系客服帮助你顺利解决！</p>
+				</div>
+			</div>
+			
+			<div class="col-sm-4"> <!-- 3 -->
+				<div class="affa-feature-icon-left2">
+					<i class="ion ion-lock-combination"></i>
+					<h4>安全第一步</h4>
+					<p>软件所涉及的账号，密码及个人信息采用三重加密算法，绝对保障个人信息安全！</p>
+				</div>
+			</div>
+			
+		</div>
+		<!-- .row end -->
+		
+		<!-- .row -->
+		<div class="row">
+			
+			<div class="col-md-10 col-md-offset-1">
+				<div class="img-layers-wrap">
+					<figure class="img-layers4 img-md-left">
+						<div class="img-layer-lg">
+							<img src=".././static/images/content/landing/feature-1.png" alt="Image Large" class="animation" data-animation="animation-fade-in-up">
+						</div>
+						<div class="img-layer-md">
+							<img src=".././static/images/content/landing/feature-8.png" alt="Image Medium" class="animation" data-animation="animation-fade-in-up" data-delay="300">
+						</div>
+						<div class="img-layer-sm">
+							<img src=".././static/images/content/landing/feature-3.png" alt="Image Small" class="animation" data-animation="animation-fade-in-up" data-delay="600">
+						</div>
+					</figure>
+				</div>
+			</div>
+			
+		</div>
+		<!-- .row end -->
+		
+	</div>
+	<!-- .container end -->
+	
+</div>
+<!-- #features2 end -->
+
+<!-- #testimonials -->
+<div id="testimonials" class="bg-color bg-dark container-padding100" style="background-image:url(images/bg-testimonials-carousel.png);">
+	
+	<!-- .container -->
+	<div class="container">
+		
+		<div class="post-heading-center no-border">
+			<p>软件更新计划</p>
+			<h2>可能这只是三大享有的福利</h2>
+		</div>
+		
+		<!-- .affa-testimonials-carousel -->
+		<div class="affa-testimonials-carousel">
+			<div class="carousel-slider">
+				
+				<div class="slick-slide"> <!-- 1 -->
+					<div class="affa-testimonial">
+						<div class="testimonial-name">
+							<img src=".././static/images/content/avatars/1.jpg" alt="Avatar">
+							<h4>教务助手</h4>
+							<p>进一步完善功能</p>
+						</div>
+						<div class="testimonial-txt">
+							<p>教务助手完全更新后会包括但不局限于：一键评教、成绩查询、自助选课、课表查询、物理实验选、自助物理考试选取、课程群组交流、上课提醒、空闲教室查询、蹭课小助手等功能，让你学习无忧</p>
+						</div>
+						<div class="testimonial-rate">
+							<span class="testimonial-rate-val" style="width:100%;">5</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="slick-slide"> <!-- 2 -->
+					<div class="affa-testimonial">
+						<div class="testimonial-name">
+							<img src=".././static/images/content/avatars/2.jpg" alt="Avatar">
+							<h4>影音助手</h4>
+							<p>目前正在开发中</p>
+						</div>
+						<div class="testimonial-txt">
+							<p>影音助手开发完成后会包括但不局限于：海量无损音乐下载，爱你的耳机多一点。各种你爱看的电影和剧的下载，告别下载各种客户端的时代。影音娱乐，有我一个就够了！</p>
+						</div>
+						<div class="testimonial-rate">
+							<span class="testimonial-rate-val" style="width:100%;">5</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="slick-slide"> <!-- 3 -->
+					<div class="affa-testimonial">
+						<div class="testimonial-name">
+							<img src=".././static/images/content/avatars/3.jpg" alt="Avatar">
+							<h4>校园助手</h4>
+							<p>目前正在开发中</p>
+						</div>
+						<div class="testimonial-txt">
+							<p>校园助手开发完成后会包括但不限于：各大院校级组织的招新报名、对部门成员课表一览、各院校级大型活动通知及线上报名、各种常用软件和专业软件的下载等功能！</p>
+						</div>
+						<div class="testimonial-rate">
+							<span class="testimonial-rate-val" style="width:100%;">5</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="slick-slide"> <!-- 4 -->
+					<div class="affa-testimonial">
+						<div class="testimonial-name">
+							<img src=".././static/images/content/avatars/4.jpg" alt="Avatar">
+							<h4>生活助手</h4>
+							<p>目前正在开发中</p>
+						</div>
+						<div class="testimonial-txt">
+							<p>生活助手开发完成后包括但不限于：抢购火车票、跳瘙市场、72小时情侣配对、颜值匹配等功能！丰富你的校园生活！</p>
+						</div>
+						<div class="testimonial-rate">
+							<span class="testimonial-rate-val" style="width:100%;">5</span>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<!-- .affa-testimonials-carousel end -->
+		
+	</div>
+	<!-- .container end -->
+	
+</div>
+<!-- #testimonials end -->
+
+<!-- #screenshots -->
+<div id="screenshots" class="container-padding100">
+	
+	<!-- .container -->
+	<div class="container">
+		
+		<div class="post-heading-center">
+			<p>应用软件截图</p>
+			<h2>简洁的布局让你心情愉悦</h2>
+		</div>
+		
+		<div class="carousel-slider gallery-slider">
+			<div class="slick-slide"> <!-- 1 -->
+				<div class="img-hover">
+					<h4>应用登录界面</h4>
+					<a href=".././static/images/content/screenshots/1.jpg" class="fancybox" data-fancybox-group="images_gallery" title="Account Login Form">
+						<figure>
+							<img src=".././static/images/content/screenshots/1.jpg" alt="Account Login Form">
+							<div class="hover-masked"></div>
+						</figure>
+					</a>
+				</div>
+			</div>
+			
+			<div class="slick-slide"> <!-- 2 -->
+				<div class="img-hover">
+					<h4>使用引导界面</h4>
+					<a href=".././static/images/content/screenshots/2.jpg" class="fancybox" data-fancybox-group="images_gallery" title="Installation Guide">
+						<figure>
+							<img src=".././static/images/content/screenshots/2.jpg" alt="Installation Guide">
+							<div class="hover-masked"></div>
+						</figure>
+					</a>
+				</div>
+			</div>
+			
+			<div class="slick-slide"> <!-- 3 -->
+				<div class="img-hover">
+					<h4>个性化设置</h4>
+					<a href=".././static/images/content/screenshots/3.jpg" class="fancybox" data-fancybox-group="images_gallery" title="Profile Dashboard">
+						<figure>
+							<img src=".././static/images/content/screenshots/3.jpg" alt="Profile Dashboard">
+							<div class="hover-masked"></div>
+						</figure>
+					</a>
+				</div>
+			</div>
+			
+			<div class="slick-slide"> <!-- 4 -->
+				<div class="img-hover">
+					<h4>无损音乐播放</h4>
+					<a href=".././static/images/content/screenshots/4.jpg" class="fancybox" data-fancybox-group="images_gallery" title="Music Background">
+						<figure>
+							<img src=".././static/images/content/screenshots/4.jpg" alt="Music Background">
+							<div class="hover-masked"></div>
+						</figure>
+					</a>
+				</div>
+			</div>
+			
+			<div class="slick-slide"> <!-- 5 -->
+				<div class="img-hover">
+					<h4>查看活动通知</h4>
+					<a href=".././static/images/content/screenshots/5.jpg" class="fancybox" data-fancybox-group="images_gallery" title="Answer Questions">
+						<figure>
+							<img src=".././static/images/content/screenshots/5.jpg" alt="Answer Questions">
+							<div class="hover-masked"></div>
+						</figure>
+					</a>
+				</div>
+			</div>
+			
+			<div class="slick-slide"> <!-- 6 -->
+				<div class="img-hover">
+					<h4>无损音乐播放</h4>
+					<a href=".././static/images/content/screenshots/6.jpg" class="fancybox" data-fancybox-group="images_gallery" title="Minimalize Player">
+						<figure>
+							<img src=".././static/images/content/screenshots/6.jpg" alt="Minimalize Player">
+							<div class="hover-masked"></div>
+						</figure>
+					</a>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<!-- .container end -->
+	
+</div>
+<!-- #screenshots end -->
+
+<!-- #pricing -->
+<div id="pricing" class="bg-color container-padding100">
+	
+	<!-- .container -->
+	<div class="container">
+		
+		<div class="post-heading-center">
+			<p>加入我们</p>
+			<h2>我们需要你的加入</h2>
+		</div>
+		
+		<!-- .affa-tbl-pricing -->
+		<div class="affa-tbl-pricing">
+			<div class="row">
+				
+				<div class="col-sm-3 tbl-prc-col"> <!-- 1 -->
+					<div class="tbl-prc-wrap">
+						<div class="tbl-prc-header">
+							<i class="ion ion-ios-chatboxes-outline"></i>
+							<h4>交流</h4>
+							<p>需要你的交际能力</p>
+						</div>
+						<div class="tbl-prc-price">
+							<h4>客户代表</h4>
+							<p>期待你的加入</p>
+						</div>
+						<div class="tbl-prc-footer">
+							<a href=".././blog/38" class="btn-custom">加入</a>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-sm-3 tbl-prc-col current"> <!-- 2 -->
+					<div class="tbl-prc-wrap">
+						<div class="tbl-prc-header">
+							<i class="ion ion-ios-briefcase-outline"></i>
+							<h4>程序</h4>
+							<p>需要你的编程能力</p>
+						</div>
+						<div class="tbl-prc-price">
+							<h4>前端后端</h4>
+							<p>期待你的加入</p>
+						</div>
+						<div class="tbl-prc-footer">
+							<a href=".././blog/38" class="btn-custom">加入</a>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-sm-3 tbl-prc-col"> <!-- 3 -->
+					<div class="tbl-prc-wrap">
+						<div class="tbl-prc-header">
+							<i class="ion ion-ios-color-filter-outline"></i>
+							<h4>设计</h4>
+							<p>需要你的设计能力</p>
+						</div>
+						<div class="tbl-prc-price">
+							<h4>UI设计</h4>
+							<p>期待你的加入</p>
+						</div>
+						<div class="tbl-prc-footer">
+							<a href=".././blog/38" class="btn-custom">加入</a>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-sm-3 tbl-prc-col"> <!-- 4 -->
+					<div class="tbl-prc-wrap">
+						<div class="tbl-prc-header">
+							<i class="ion ion-ios-world-outline"></i>
+							<h4>保障</h4>
+							<p>需要你的网络知识</p>
+						</div>
+						<div class="tbl-prc-price">
+							<h4>黑客攻防</h4>
+							<p>期待你的加入</p>
+						</div>
+						<div class="tbl-prc-footer">
+							<a href=".././blog/38" class="btn-custom">加入</a>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<!-- .affa-tbl-pricing end -->
+		
+	</div>
+	<!-- .container end -->
+	
+</div>
+<!-- #pricing end -->
+
+<div class="container">
+	<div class="sep-border"></div> <!-- separator -->
+</div>
+
+<!-- #counter -->
+<div id="counter" class="container-padding12080">
+	
+	<!-- .container -->
+	<div class="container">
+		
+		<!-- .row -->
+		<div class="row">
+			
+			<div class="col-sm-4"> <!-- 1 -->
+				<div class="affa-counter-txt">
+					<h4><span>0</span></h4>
+					<i class="ion ion-ios-cloud-download-outline"></i>
+					<p>Downloads</p>
+				</div>
+			</div>
+			
+			<div class="col-sm-4"> <!-- 2 -->
+				<div class="affa-counter-txt">
+					<h4><span>0</span></h4>
+					<i class="ion ion-ios-heart-outline"></i>
+					<p>Happy Users</p>
+				</div>
+			</div>
+			
+			<div class="col-sm-4"> <!-- 3 -->
+				<div class="affa-counter-txt">
+					<h4><span>0</span></h4>
+					<i class="ion ion-ios-pulse"></i>
+					<p>App Likes</p>
+				</div>
+			</div>
+			
+		</div>
+		<!-- .row end -->
+		
+	</div>
+	<!-- .container end -->
+	
+</div>
+<!-- #counter end -->
+
+<!-- #download -->
+<div id="download" class="bg-color bg-parallax" data-parallax="scroll" data-speed="0.2" data-natural-width="1920" data-natural-height="1080" data-image-src="images/content/bg/2.jpg">
+	
+	<!-- .bg-overlay -->
+	<div class="bg-overlay bg-overlay80 container-padding120 text-center">
+		
+		<!-- .container -->
+		<div class="container">
+			
+			<div class="post-heading-center no-border margin-bottom30">
+				<h2>应用商店下载</h2>
+			</div>
+			
+			<p class="text-big text-padding margin-bottom0">各大应用商店我们的应用即将陆续上线！！！</p>
+			
+			<div class="margin-top40">
+				<a href="#" title="Download from App Store" class="btn-appstore">App Store</a>
+				<a href="#" title="Download from Play Store" class="btn-playstore">Play Store</a>
+			</div>
+			
+		</div>
+		<!-- .container end -->
+		
+	</div>
+	<!-- .bg-overlay end -->
+	
+</div>
+<!-- #download end -->
+
+<!-- #clients -->
+<div id="clients" class="container-padding10060">
+	
+	<!-- .container -->
+	<div class="container">
+		
+		<div class="post-heading-center">
+			<p>著名用户?</p>
+			<h2>我们学习很多著名品牌的风格！</h2>
+		</div>
+		
+		<!-- .row -->
+		<div class="row row-clients">
+			
+			<div class="col-sm-3"> <!-- 1 -->
+				<div class="affa-client-logo">
+					<img src=".././static/images/content/clients/1.png" alt="Logo">
+				</div>
+			</div>
+			
+			<div class="col-sm-3"> <!-- 2 -->
+				<div class="affa-client-logo">
+					<img src=".././static/images/content/clients/2.png" alt="Logo">
+				</div>
+			</div>
+			
+			<div class="col-sm-3"> <!-- 3 -->
+				<div class="affa-client-logo">
+					<img src=".././static/images/content/clients/3.png" alt="Logo">
+				</div>
+			</div>
+			
+			<div class="col-sm-3"> <!-- 4 -->
+				<div class="affa-client-logo">
+					<img src=".././static/images/content/clients/4.png" alt="Logo">
+				</div>
+			</div>
+			
+		</div>
+		<!-- .row end -->
+		
+	</div>
+	<!-- .container end -->
+	
+</div>
+<!-- #clients end -->
+
+<div class="container">
+	<div class="sep-border"></div> <!-- separator -->
+</div>
+
+<!-- #footer -->
+<footer id="footer">
+	
+	<!-- #contact -->
+	<div id="contact" class="container-padding10080">
+		
+		<!-- .container -->
+		<div class="container">
+			
+
+			
+			<!-- .row -->
+			<div class="row padding-bottom20">
+				
+				<div class="col-sm-4"> <!-- 1 -->
+					<div class="affa-contact-info">
+						<div class="contact-info-heading">
+							<p>(00) 123-4567890</p>
+							<p>(00) 312-0987654</p>
+						</div>
+						<i class="ion ion-ios-telephone-outline"></i>
+						<h4>Phone Number</h4>
+					</div>
+				</div>
+				
+				<div class="col-sm-4"> <!-- 2 -->
+					<div class="affa-contact-info">
+						<div class="contact-info-heading">
+							<p><a href="mailto:support@affapress.com">xszs_support@163.com</a></p>
+							<p><a href="mailto:admin@affapress.com">462558070@qq.com</a></p>
+						</div>
+						<i class="ion ion-ios-email-outline"></i>
+						<h4>Email Address</h4>
+					</div>
+				</div>
+				
+				<div class="col-sm-4"> <!-- 3 -->
+					<div class="affa-contact-info">
+						<div class="contact-info-heading">
+							<p>湖北省<br>宜昌市，三峡大学</p>
+						</div>
+						<i class="ion ion-map"></i>
+						<h4>Business Address</h4>
+					</div>
+				</div>
+				
+			</div>
+			<!-- .row end -->
+			
+			<div class="row">
+				<div class="col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2">
+
+				</div>
+			</div>
+			
+		</div>
+		<!-- .container end -->
+		
+	</div>
+	<!-- #contact end -->
+	
+	<!-- .footer-txt -->
+	<div class="footer-txt">
+		
+		<!-- .container -->
+		<div class="container">
+			
+			<div class="footer-logo"><img src=".././static/images/logo_footer.png" alt="Logo"></div> <!-- site logo -->
+			
+			<div class="footer-copyright">
+				<p class="copyright-txt">Copyright &copy; 2019.Company name All rights reserved.SitSchool <a href="www.sitschool.cn" target="_blank" title="SitSchool">SitSchool</a> - Collect from <a href="www.sitschool.cn" title="学生助手" target="_blank">学生助手</a></p>
+				<div class="socials">
+					<a href="#" title="Facebook"><i class="ion ion-social-facebook"></i></a>
+					<a href="#" title="Twitter"><i class="ion ion-social-twitter"></i></a>
+					<a href="#" title="Youtube"><i class="ion ion-social-youtube"></i></a>
+					<a href="#" title="Dribbble"><i class="ion ion-social-dribbble"></i></a>
+				</div>
+			</div>
+			
+		</div>
+		<!-- .container end -->
+		
+	</div>
+	<!-- .footer-txt end -->
+	
+	<a href="#" class="scrollup" title="Back to Top!"><i class="ion ion-ios-arrow-up"></i></a>
+	
+</footer>
+<!-- #footer end -->
+
+<div id="customize">
+	<div class="wrap-customize">
+		<div class="customize-panel">
+			<h5>Headers</h5>
+			<div class="customize-list-link">
+				<a href="../header_1/" title="Header Layout 1">Layout 1</a>
+				<a href="../header_2/" title="Header Layout 2">Layout 2</a>
+				<a href="../header_3/" title="Header Layout 3">Layout 3</a>
+				<a href="../header_4/" title="Header Layout 4">Layout 4</a>
+			</div>
+		</div>
+		<div class="customize-panel">
+			<h5>Colors</h5>
+			<div class="customize-list-color">
+				<a href="#" class="blue" title="Blue" style="background-color:#2863f9;"></a>
+				<a href="#" class="green" title="Green" style="background-color:#21c064;"></a>
+				<a href="#" class="orange" title="Orange" style="background-color:#ff5e00;"></a>
+				<a href="#" class="pink" title="Pink" style="background-color:#ff0080;"></a>
+				<a href="#" class="purple" title="Purple" style="background-color:#5b1795;"></a>
+				<a href="#" class="yellow" title="Yellow" style="background-color:#feac00;"></a>
+			</div>
+		</div>
+	</div>
+	<div class="popup-open"><i class="ion ion-gear-a"></i></div>
+</div>
+
+<!--[if lt IE 8]>
+	<div class="browser-notice">
+		<div class="container">
+			<div class="text">
+				<h1>Internet Explorer Out To Date</h1>
+				<p>Please update your Internet Explorer browser with a newer version (Internet Explorer 8 above) now!</p>
+				<span>You can download it <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie" target="_blank">here....</a></span>
+			</div>
+		</div>
+	</div>
+<![endif]-->
+
+<!-- JavaScripts -->
+<script type="text/javascript" src=".././static/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src=".././static/js/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src=".././static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src=".././static/js/jquery.easing.min.js"></script>
+<script type="text/javascript" src=".././static/js/smoothscroll.js"></script>
+<script type="text/javascript" src=".././static/js/response.min.js"></script>
+<script type="text/javascript" src=".././static/js/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src=".././static/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src=".././static/js/jquery.imgpreload.min.js"></script>
+<script type="text/javascript" src=".././static/js/waypoints.min.js"></script>
+<script type="text/javascript" src=".././static/js/slick.min.js"></script>
+<script type="text/javascript" src=".././static/js/jquery.fancybox.pack.js"></script>
+<script type="text/javascript" src=".././static/js/jquery.fancybox-media.js"></script>
+<script type="text/javascript" src=".././static/js/jquery.counterup.min.js"></script>
+<script type="text/javascript" src=".././static/js/parallax.min.js"></script>
+<script type="text/javascript" src=".././static/js/script.js"></script>
+
+</body>
+</html>
